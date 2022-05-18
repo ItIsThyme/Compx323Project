@@ -23,25 +23,30 @@ namespace Compx323Project
         private void getGames_Click(object sender, EventArgs e)
         {
             //use sql select statement to get all games
-            
-            //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-            string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-            OracleConnection conn = new OracleConnection(oradb);  // C#
-            conn.Open();
-            OracleCommand cmd = new OracleCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "select id, title from product";
-            cmd.CommandType = CommandType.Text;
-            OracleDataReader dr = cmd.ExecuteReader();
-
-            //add them all to the text box
-            while (dr.Read())
+            try
             {
-                //'0' is id from select statement and '1' is title
-                gameListBox.Items.Add(dr.GetString(0) + dr.GetString(1).PadLeft(10));
-            }            
-            conn.Dispose();
+                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
+                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                OracleConnection conn = new OracleConnection(oradb);  // C#
+                conn.Open();
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select title from product";
+                cmd.CommandType = CommandType.Text;
+                OracleDataReader dr = cmd.ExecuteReader();
 
+                //add them all to the text box
+                while (dr.Read())
+                {
+                    //'0' is id from select statement and '1' is title
+                    gameListBox.Items.Add(dr.GetString(0));
+                }
+                conn.Dispose();
+            }catch (Exception x)
+            {
+                MessageBox.Show("Database connection error");
+                return;
+            }
         }
 
         private void addReview_Click(object sender, EventArgs e)
@@ -56,6 +61,7 @@ namespace Compx323Project
             }
             //else open a new form to allow the user to add a review to the game
             this.Hide();
+            // will have to pass this to review somehow -> gameListBox.SelectedItem.ToString();
             Review reviewForm = new Review();
             reviewForm.ShowDialog();
             this.Show();
