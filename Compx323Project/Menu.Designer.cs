@@ -1,7 +1,7 @@
 ﻿
 namespace Compx323Project
 {
-    partial class Form1
+    partial class MenuScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@ namespace Compx323Project
             this.getGames.TabIndex = 1;
             this.getGames.Text = "Get games";
             this.getGames.UseVisualStyleBackColor = true;
+            this.getGames.Click += new System.EventHandler(this.getGames_Click);
             // 
             // addReview
             // 
@@ -59,8 +60,9 @@ namespace Compx323Project
             this.addReview.TabIndex = 2;
             this.addReview.Text = "Review selected game";
             this.addReview.UseVisualStyleBackColor = true;
+            this.addReview.Click += new System.EventHandler(this.addReview_Click);
             // 
-            // Form1
+            // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,8 +70,8 @@ namespace Compx323Project
             this.Controls.Add(this.addReview);
             this.Controls.Add(this.getGames);
             this.Controls.Add(this.gameListBox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MenuScreen";
+            this.Text = "Menu";
             this.ResumeLayout(false);
 
         }

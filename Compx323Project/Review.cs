@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Compx323Project
 {
-    public partial class Form1 : Form
+    public partial class Review : Form
     {
-        public Form1()
+        public Review()
         {
             InitializeComponent();
         }
