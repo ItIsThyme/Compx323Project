@@ -42,37 +42,41 @@ namespace Compx323Project
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(16, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 29);
+            this.label1.Size = new System.Drawing.Size(71, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Title";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // titleTextBox
             // 
             this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(162, 14);
+            this.titleTextBox.Location = new System.Drawing.Point(216, 17);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(242, 31);
+            this.titleTextBox.Size = new System.Drawing.Size(321, 37);
             this.titleTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 65);
+            this.label2.Location = new System.Drawing.Point(16, 80);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 29);
+            this.label2.Size = new System.Drawing.Size(165, 36);
             this.label2.TabIndex = 2;
             this.label2.Text = "Description";
             // 
             // descriptionTextBox
             // 
             this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(162, 65);
+            this.descriptionTextBox.Location = new System.Drawing.Point(216, 80);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(242, 31);
+            this.descriptionTextBox.Size = new System.Drawing.Size(321, 152);
             this.descriptionTextBox.TabIndex = 3;
             // 
             // reviewComboBox
@@ -86,36 +90,40 @@ namespace Compx323Project
             "3",
             "4",
             "5"});
-            this.reviewComboBox.Location = new System.Drawing.Point(162, 115);
+            this.reviewComboBox.Location = new System.Drawing.Point(216, 258);
+            this.reviewComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reviewComboBox.Name = "reviewComboBox";
-            this.reviewComboBox.Size = new System.Drawing.Size(131, 33);
+            this.reviewComboBox.Size = new System.Drawing.Size(173, 38);
             this.reviewComboBox.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 115);
+            this.label3.Location = new System.Drawing.Point(16, 258);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 29);
+            this.label3.Size = new System.Drawing.Size(102, 36);
             this.label3.TabIndex = 5;
             this.label3.Text = "Rating";
             // 
             // submitReviewButton
             // 
             this.submitReviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitReviewButton.Location = new System.Drawing.Point(162, 172);
+            this.submitReviewButton.Location = new System.Drawing.Point(216, 328);
+            this.submitReviewButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.submitReviewButton.Name = "submitReviewButton";
-            this.submitReviewButton.Size = new System.Drawing.Size(242, 38);
+            this.submitReviewButton.Size = new System.Drawing.Size(323, 47);
             this.submitReviewButton.TabIndex = 6;
             this.submitReviewButton.Text = "Submit review";
             this.submitReviewButton.UseVisualStyleBackColor = true;
+            this.submitReviewButton.Click += new System.EventHandler(this.submitReviewButton_Click);
             // 
             // Review
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 283);
+            this.ClientSize = new System.Drawing.Size(581, 393);
             this.Controls.Add(this.submitReviewButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.reviewComboBox);
@@ -123,6 +131,7 @@ namespace Compx323Project
             this.Controls.Add(this.label2);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Review";
             this.Text = "Review";
             this.ResumeLayout(false);
