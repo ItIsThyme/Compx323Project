@@ -45,6 +45,7 @@ namespace Compx323Project
             this.removeButton = new System.Windows.Forms.Button();
             this.orderButton = new System.Windows.Forms.Button();
             this.userGamesButton = new System.Windows.Forms.Button();
+            this.mongoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gameListBox
@@ -128,7 +129,7 @@ namespace Compx323Project
             // loggedinLabel
             // 
             this.loggedinLabel.AutoSize = true;
-            this.loggedinLabel.Location = new System.Drawing.Point(401, 296);
+            this.loggedinLabel.Location = new System.Drawing.Point(401, 287);
             this.loggedinLabel.Name = "loggedinLabel";
             this.loggedinLabel.Size = new System.Drawing.Size(0, 13);
             this.loggedinLabel.TabIndex = 9;
@@ -136,7 +137,7 @@ namespace Compx323Project
             // logoutButton
             // 
             this.logoutButton.Enabled = false;
-            this.logoutButton.Location = new System.Drawing.Point(404, 328);
+            this.logoutButton.Location = new System.Drawing.Point(404, 314);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(124, 30);
             this.logoutButton.TabIndex = 10;
@@ -194,11 +195,23 @@ namespace Compx323Project
             this.userGamesButton.UseVisualStyleBackColor = true;
             this.userGamesButton.Click += new System.EventHandler(this.userGamesButton_Click);
             // 
+            // mongoButton
+            // 
+            this.mongoButton.Enabled = false;
+            this.mongoButton.Location = new System.Drawing.Point(404, 350);
+            this.mongoButton.Name = "mongoButton";
+            this.mongoButton.Size = new System.Drawing.Size(124, 30);
+            this.mongoButton.TabIndex = 16;
+            this.mongoButton.Text = "Switch to mongo";
+            this.mongoButton.UseVisualStyleBackColor = true;
+            this.mongoButton.Visible = false;
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 396);
+            this.Controls.Add(this.mongoButton);
             this.Controls.Add(this.userGamesButton);
             this.Controls.Add(this.orderButton);
             this.Controls.Add(this.removeButton);
@@ -241,6 +254,7 @@ namespace Compx323Project
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.Button userGamesButton;
+        private System.Windows.Forms.Button mongoButton;
     }
 }
 
