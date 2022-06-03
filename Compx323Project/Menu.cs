@@ -23,6 +23,7 @@ namespace Compx323Project
 
         private void getGames_Click(object sender, EventArgs e)
         {
+            gameListBox.Items.Clear();
             //use sql select statement to get all games
             try
             {
@@ -76,6 +77,7 @@ namespace Compx323Project
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            
             username = usernameTextBox.Text;
             String password = passwordTextBox.Text;
             string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
@@ -176,6 +178,37 @@ namespace Compx323Project
         private void MenuScreen_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void userGamesButton_Click(object sender, EventArgs e)
+        {
+            gameListBox.Items.Clear();
+            //loads users games into the lsit box
+            try
+            {
+                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
+                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                OracleConnection conn = new OracleConnection(oradb);  // C#
+                conn.Open();
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select title from product where id in (select product_id from order_products where purchaser like \'" + username + "')";
+                cmd.CommandType = CommandType.Text;
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                //add them all to the text box
+                while (dr.Read())
+                {
+                    //'0' is id from select statement and '1' is title
+                    gameListBox.Items.Add(dr.GetString(0));
+                }
+                conn.Dispose();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Database connection error");
+                return;
+            }
         }
     }
 }

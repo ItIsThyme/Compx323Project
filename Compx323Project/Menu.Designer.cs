@@ -44,6 +44,7 @@ namespace Compx323Project
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.orderButton = new System.Windows.Forms.Button();
+            this.userGamesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gameListBox
@@ -60,13 +61,13 @@ namespace Compx323Project
             this.getGames.Name = "getGames";
             this.getGames.Size = new System.Drawing.Size(129, 30);
             this.getGames.TabIndex = 1;
-            this.getGames.Text = "Get games";
+            this.getGames.Text = "Get all games";
             this.getGames.UseVisualStyleBackColor = true;
             this.getGames.Click += new System.EventHandler(this.getGames_Click);
             // 
             // addReview
             // 
-            this.addReview.Location = new System.Drawing.Point(192, 314);
+            this.addReview.Location = new System.Drawing.Point(192, 278);
             this.addReview.Name = "addReview";
             this.addReview.Size = new System.Drawing.Size(129, 30);
             this.addReview.TabIndex = 2;
@@ -183,11 +184,22 @@ namespace Compx323Project
             this.orderButton.UseVisualStyleBackColor = true;
             this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
+            // userGamesButton
+            // 
+            this.userGamesButton.Location = new System.Drawing.Point(192, 314);
+            this.userGamesButton.Name = "userGamesButton";
+            this.userGamesButton.Size = new System.Drawing.Size(129, 30);
+            this.userGamesButton.TabIndex = 15;
+            this.userGamesButton.Text = "Get my games";
+            this.userGamesButton.UseVisualStyleBackColor = true;
+            this.userGamesButton.Click += new System.EventHandler(this.userGamesButton_Click);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 396);
+            this.Controls.Add(this.userGamesButton);
             this.Controls.Add(this.orderButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
@@ -228,6 +240,7 @@ namespace Compx323Project
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button orderButton;
+        private System.Windows.Forms.Button userGamesButton;
     }
 }
 
