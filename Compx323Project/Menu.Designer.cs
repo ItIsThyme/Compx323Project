@@ -205,6 +205,7 @@ namespace Compx323Project
             this.mongoButton.Text = "Switch to mongo";
             this.mongoButton.UseVisualStyleBackColor = true;
             this.mongoButton.Visible = false;
+            this.mongoButton.Click += new System.EventHandler(this.mongoButton_Click);
             // 
             // MenuScreen
             // 

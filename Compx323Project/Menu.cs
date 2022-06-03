@@ -61,15 +61,15 @@ namespace Compx323Project
                 MessageBox.Show("Please select the item in the listbox you want to review");
                 return;
             }
-            //else open a new form to allow the user to add a review to the game
-            this.Hide();
-            // will have to pass this to review somehow -> gameListBox.SelectedItem.ToString();
-            // as well as username (global variable from login)
+            
             if (username.Equals(""))
             {
                 MessageBox.Show("Please log in to place a review");
                 return;
             }
+            // will have to pass this to review somehow -> gameListBox.SelectedItem.ToString();
+            // as well as username (global variable from login)
+            this.Hide();
             Review reviewForm = new Review();
             reviewForm.ShowDialog();
             this.Show();
@@ -209,6 +209,14 @@ namespace Compx323Project
                 MessageBox.Show("Database connection error");
                 return;
             }
+        }
+
+        private void mongoButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MongoDBMenu mongoForm = new MongoDBMenu();
+            mongoForm.ShowDialog();
+            this.Show();
         }
     }
 }
