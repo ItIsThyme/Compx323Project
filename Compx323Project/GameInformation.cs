@@ -32,7 +32,9 @@ namespace Compx323Project
                 conn.Open();
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "select title, description, listing_date from game where id = " + gameId;
+                cmd.CommandText = "select p.title, p.description, p.listing_date, pb.name from " +
+                    "(product p inner join publisher_product pp on p.id = pp.product_id) inner join publisher pb" +
+                    "on pb.id = pp.publisher_id  where p.id = " + gameId;
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 
@@ -42,7 +44,7 @@ namespace Compx323Project
                     string gameName = dr.GetString(0);
                     string gameDescription = dr.GetString(1);
                     string releaseDate = dr.GetString(2);
-                    //string publisher = dr.GetString(3);
+                    string publisher = dr.GetString(3);
                 }
                 conn.Dispose();
             }

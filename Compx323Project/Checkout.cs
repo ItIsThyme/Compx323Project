@@ -66,6 +66,7 @@ namespace Compx323Project
             conn.Open();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
+
             // need to retrieve the users username as well as the product they are reviewing
             //cmd.CommandText = "insert into order() values ('" +
                 

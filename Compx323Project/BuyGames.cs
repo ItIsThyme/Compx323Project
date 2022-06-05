@@ -74,7 +74,7 @@ namespace Compx323Project
                 conn.Open();
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "select title from product";
+                cmd.CommandText = "select title, id from product";
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 

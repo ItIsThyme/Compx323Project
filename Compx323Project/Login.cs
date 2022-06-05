@@ -32,7 +32,7 @@ namespace Compx323Project
                 conn.Open();
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "select username, password from user where username like '" + username + "'";
+                cmd.CommandText = "select username, password from user where username = '" + username + "'";
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())  //must be a user if the select worked
