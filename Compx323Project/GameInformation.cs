@@ -33,8 +33,7 @@ namespace Compx323Project
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "select p.title, p.description, p.listing_date, pb.name from " +
-                    "(product p inner join publisher_product pp on p.id = pp.product_id) inner join publisher pb" +
-                    "on pb.id = pp.publisher_id  where p.id = " + gameId;
+                    "product p inner join publisher pb on p.publisher_id = pb.id where p.id = " + gameId;
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 
