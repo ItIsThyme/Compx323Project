@@ -34,19 +34,15 @@ namespace Compx323Project
             this.buttonCheckout = new System.Windows.Forms.Button();
             this.listBoxOrder = new System.Windows.Forms.ListBox();
             this.listBoxGames = new System.Windows.Forms.ListBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byReleaseDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonGameInfo = new System.Windows.Forms.Button();
             this.buttonGameReview = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonAddToOrder
             // 
-            this.buttonAddToOrder.Location = new System.Drawing.Point(441, 237);
+            this.buttonAddToOrder.Location = new System.Drawing.Point(437, 225);
             this.buttonAddToOrder.Name = "buttonAddToOrder";
             this.buttonAddToOrder.Size = new System.Drawing.Size(155, 42);
             this.buttonAddToOrder.TabIndex = 0;
@@ -56,7 +52,7 @@ namespace Compx323Project
             // 
             // buttonDeleteFromOrder
             // 
-            this.buttonDeleteFromOrder.Location = new System.Drawing.Point(619, 237);
+            this.buttonDeleteFromOrder.Location = new System.Drawing.Point(615, 225);
             this.buttonDeleteFromOrder.Name = "buttonDeleteFromOrder";
             this.buttonDeleteFromOrder.Size = new System.Drawing.Size(155, 42);
             this.buttonDeleteFromOrder.TabIndex = 1;
@@ -66,7 +62,7 @@ namespace Compx323Project
             // 
             // buttonCheckout
             // 
-            this.buttonCheckout.Location = new System.Drawing.Point(502, 299);
+            this.buttonCheckout.Location = new System.Drawing.Point(498, 287);
             this.buttonCheckout.Name = "buttonCheckout";
             this.buttonCheckout.Size = new System.Drawing.Size(198, 40);
             this.buttonCheckout.TabIndex = 2;
@@ -77,55 +73,23 @@ namespace Compx323Project
             // 
             this.listBoxOrder.FormattingEnabled = true;
             this.listBoxOrder.ItemHeight = 16;
-            this.listBoxOrder.Location = new System.Drawing.Point(450, 39);
+            this.listBoxOrder.Location = new System.Drawing.Point(449, 60);
             this.listBoxOrder.Name = "listBoxOrder";
-            this.listBoxOrder.Size = new System.Drawing.Size(307, 164);
+            this.listBoxOrder.Size = new System.Drawing.Size(307, 148);
             this.listBoxOrder.TabIndex = 3;
             // 
             // listBoxGames
             // 
             this.listBoxGames.FormattingEnabled = true;
             this.listBoxGames.ItemHeight = 16;
-            this.listBoxGames.Location = new System.Drawing.Point(21, 48);
+            this.listBoxGames.Location = new System.Drawing.Point(22, 27);
             this.listBoxGames.Name = "listBoxGames";
             this.listBoxGames.Size = new System.Drawing.Size(357, 500);
             this.listBoxGames.TabIndex = 4;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // sortToolStripMenuItem
-            // 
-            this.sortToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.byNameToolStripMenuItem,
-            this.byReleaseDateToolStripMenuItem});
-            this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
-            this.sortToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
-            this.sortToolStripMenuItem.Text = "Sort";
-            // 
-            // byNameToolStripMenuItem
-            // 
-            this.byNameToolStripMenuItem.Name = "byNameToolStripMenuItem";
-            this.byNameToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
-            this.byNameToolStripMenuItem.Text = "By Name";
-            // 
-            // byReleaseDateToolStripMenuItem
-            // 
-            this.byReleaseDateToolStripMenuItem.Name = "byReleaseDateToolStripMenuItem";
-            this.byReleaseDateToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
-            this.byReleaseDateToolStripMenuItem.Text = "By Release Date";
-            // 
             // buttonGameInfo
             // 
-            this.buttonGameInfo.Location = new System.Drawing.Point(468, 378);
+            this.buttonGameInfo.Location = new System.Drawing.Point(464, 366);
             this.buttonGameInfo.Name = "buttonGameInfo";
             this.buttonGameInfo.Size = new System.Drawing.Size(268, 42);
             this.buttonGameInfo.TabIndex = 6;
@@ -135,7 +99,7 @@ namespace Compx323Project
             // 
             // buttonGameReview
             // 
-            this.buttonGameReview.Location = new System.Drawing.Point(468, 439);
+            this.buttonGameReview.Location = new System.Drawing.Point(464, 427);
             this.buttonGameReview.Name = "buttonGameReview";
             this.buttonGameReview.Size = new System.Drawing.Size(268, 42);
             this.buttonGameReview.TabIndex = 7;
@@ -145,7 +109,7 @@ namespace Compx323Project
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(468, 497);
+            this.buttonBack.Location = new System.Drawing.Point(464, 485);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(268, 42);
             this.buttonBack.TabIndex = 8;
@@ -153,11 +117,21 @@ namespace Compx323Project
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(569, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Your cart:";
+            // 
             // BuyGames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonGameReview);
             this.Controls.Add(this.buttonGameInfo);
@@ -166,12 +140,8 @@ namespace Compx323Project
             this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.buttonDeleteFromOrder);
             this.Controls.Add(this.buttonAddToOrder);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "BuyGames";
             this.Text = "BuyGames";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,12 +154,9 @@ namespace Compx323Project
         private System.Windows.Forms.Button buttonCheckout;
         private System.Windows.Forms.ListBox listBoxOrder;
         private System.Windows.Forms.ListBox listBoxGames;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem byNameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem byReleaseDateToolStripMenuItem;
         private System.Windows.Forms.Button buttonGameInfo;
         private System.Windows.Forms.Button buttonGameReview;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Label label1;
     }
 }
