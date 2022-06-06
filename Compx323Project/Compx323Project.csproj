@@ -80,11 +80,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyGames.Designer.cs">
+      <DependentUpon>BuyGames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Checkout.Designer.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameInformation.Designer.cs">
+      <DependentUpon>GameInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameReviews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameReviews.Designer.cs">
+      <DependentUpon>GameReviews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu2.Designer.cs">
+      <DependentUpon>Menu2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OwnedGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OwnedGames.Designer.cs">
+      <DependentUpon>OwnedGames.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,8 +136,35 @@
     <Compile Include="Review.Designer.cs">
       <DependentUpon>Review.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewReview.Designer.cs">
+      <DependentUpon>ViewReview.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BuyGames.resx">
+      <DependentUpon>BuyGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Checkout.resx">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameInformation.resx">
+      <DependentUpon>GameInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameReviews.resx">
+      <DependentUpon>GameReviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu2.resx">
+      <DependentUpon>Menu2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OwnedGames.resx">
+      <DependentUpon>OwnedGames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="Review.resx">
       <DependentUpon>Review.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewReview.resx">
+      <DependentUpon>ViewReview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
