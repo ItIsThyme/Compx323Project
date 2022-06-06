@@ -1,7 +1,7 @@
 ﻿
 namespace Compx323Project
 {
-    partial class MenuScreen
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,58 +29,84 @@ namespace Compx323Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.gameListBox = new System.Windows.Forms.ListBox();
-            this.getGames = new System.Windows.Forms.Button();
-            this.addReview = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.buttonOwnedGames = new System.Windows.Forms.Button();
+            this.buttonBuyGames = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // gameListBox
+            // label1
             // 
-            this.gameListBox.FormattingEnabled = true;
-            this.gameListBox.Location = new System.Drawing.Point(12, 25);
-            this.gameListBox.Name = "gameListBox";
-            this.gameListBox.Size = new System.Drawing.Size(174, 355);
-            this.gameListBox.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Logged in as:";
             // 
-            // getGames
+            // textBoxUsername
             // 
-            this.getGames.Location = new System.Drawing.Point(192, 350);
-            this.getGames.Name = "getGames";
-            this.getGames.Size = new System.Drawing.Size(145, 30);
-            this.getGames.TabIndex = 1;
-            this.getGames.Text = "Get games";
-            this.getGames.UseVisualStyleBackColor = true;
-            this.getGames.Click += new System.EventHandler(this.getGames_Click);
+            this.textBoxUsername.Location = new System.Drawing.Point(136, 45);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.ReadOnly = true;
+            this.textBoxUsername.Size = new System.Drawing.Size(157, 22);
+            this.textBoxUsername.TabIndex = 1;
             // 
-            // addReview
+            // buttonOwnedGames
             // 
-            this.addReview.Location = new System.Drawing.Point(192, 314);
-            this.addReview.Name = "addReview";
-            this.addReview.Size = new System.Drawing.Size(145, 30);
-            this.addReview.TabIndex = 2;
-            this.addReview.Text = "Review selected game";
-            this.addReview.UseVisualStyleBackColor = true;
-            this.addReview.Click += new System.EventHandler(this.addReview_Click);
+            this.buttonOwnedGames.Location = new System.Drawing.Point(46, 120);
+            this.buttonOwnedGames.Name = "buttonOwnedGames";
+            this.buttonOwnedGames.Size = new System.Drawing.Size(247, 52);
+            this.buttonOwnedGames.TabIndex = 3;
+            this.buttonOwnedGames.Text = "Owned Games";
+            this.buttonOwnedGames.UseVisualStyleBackColor = true;
+            this.buttonOwnedGames.Click += new System.EventHandler(this.buttonOwnedGames_Click);
             // 
-            // MenuScreen
+            // buttonBuyGames
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.buttonBuyGames.Location = new System.Drawing.Point(46, 211);
+            this.buttonBuyGames.Name = "buttonBuyGames";
+            this.buttonBuyGames.Size = new System.Drawing.Size(247, 52);
+            this.buttonBuyGames.TabIndex = 4;
+            this.buttonBuyGames.Text = "Buy Games";
+            this.buttonBuyGames.UseVisualStyleBackColor = true;
+            this.buttonBuyGames.Click += new System.EventHandler(this.buttonBuyGames_Click);
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Location = new System.Drawing.Point(46, 308);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(247, 52);
+            this.buttonLogout.TabIndex = 5;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
+            // Menu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 450);
-            this.Controls.Add(this.addReview);
-            this.Controls.Add(this.getGames);
-            this.Controls.Add(this.gameListBox);
-            this.Name = "MenuScreen";
+            this.ClientSize = new System.Drawing.Size(340, 405);
+            this.Controls.Add(this.buttonLogout);
+            this.Controls.Add(this.buttonBuyGames);
+            this.Controls.Add(this.buttonOwnedGames);
+            this.Controls.Add(this.textBoxUsername);
+            this.Controls.Add(this.label1);
+            this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox gameListBox;
-        private System.Windows.Forms.Button getGames;
-        private System.Windows.Forms.Button addReview;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.Button buttonOwnedGames;
+        private System.Windows.Forms.Button buttonBuyGames;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }
-
