@@ -40,43 +40,47 @@ namespace Compx323Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 27);
+            this.label1.Location = new System.Drawing.Point(100, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Your Cart";
             // 
             // listBoxCart
             // 
             this.listBoxCart.FormattingEnabled = true;
-            this.listBoxCart.ItemHeight = 16;
-            this.listBoxCart.Location = new System.Drawing.Point(25, 56);
+            this.listBoxCart.Location = new System.Drawing.Point(19, 46);
+            this.listBoxCart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxCart.Name = "listBoxCart";
-            this.listBoxCart.Size = new System.Drawing.Size(302, 372);
+            this.listBoxCart.Size = new System.Drawing.Size(228, 303);
             this.listBoxCart.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(386, 71);
+            this.label2.Location = new System.Drawing.Point(290, 58);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Total Cost:";
             // 
             // textBoxCost
             // 
-            this.textBoxCost.Location = new System.Drawing.Point(468, 71);
+            this.textBoxCost.Location = new System.Drawing.Point(351, 58);
+            this.textBoxCost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCost.Name = "textBoxCost";
             this.textBoxCost.ReadOnly = true;
-            this.textBoxCost.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCost.Size = new System.Drawing.Size(76, 20);
             this.textBoxCost.TabIndex = 3;
             // 
             // buttonBuy
             // 
-            this.buttonBuy.Location = new System.Drawing.Point(362, 202);
+            this.buttonBuy.Location = new System.Drawing.Point(272, 164);
+            this.buttonBuy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBuy.Name = "buttonBuy";
-            this.buttonBuy.Size = new System.Drawing.Size(247, 49);
+            this.buttonBuy.Size = new System.Drawing.Size(185, 40);
             this.buttonBuy.TabIndex = 4;
             this.buttonBuy.Text = "Buy Games";
             this.buttonBuy.UseVisualStyleBackColor = true;
@@ -84,9 +88,10 @@ namespace Compx323Project
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(362, 296);
+            this.buttonBack.Location = new System.Drawing.Point(272, 240);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(247, 49);
+            this.buttonBack.Size = new System.Drawing.Size(185, 40);
             this.buttonBack.TabIndex = 5;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -94,16 +99,18 @@ namespace Compx323Project
             // 
             // Checkout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 450);
+            this.ClientSize = new System.Drawing.Size(485, 366);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonBuy);
             this.Controls.Add(this.textBoxCost);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBoxCart);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Checkout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkout";
             this.ResumeLayout(false);
             this.PerformLayout();

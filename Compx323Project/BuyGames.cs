@@ -24,6 +24,7 @@ namespace Compx323Project
         
         public BuyGames(string un)
         {
+            
             InitializeComponent();
             username = un;
             DisplayGames();
@@ -51,12 +52,13 @@ namespace Compx323Project
             }
             else
             {
-                MessageBox.Show("Please select a game list first");
+                MessageBox.Show("Please select a game from the list first");
             }
         }
 
         private void DisplayOrder()
         {
+            listBoxOrder.Items.Clear();
             foreach(string game in orderProducts)
             {
                 listBoxOrder.Items.Add(game);
@@ -68,13 +70,12 @@ namespace Compx323Project
             //use sql select statement to get all games
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
                 OracleConnection conn = new OracleConnection(oradb);  // C#
                 conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select title, id from product";
+
+                string query = "select title, id from product";
+                OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 
@@ -92,9 +93,11 @@ namespace Compx323Project
                 return;
             }
 
+            //ListBox listBoxGames = new ListBox();
+
             foreach(string game in games)
             {
-                games.Add(game);
+                listBoxGames.Items.Add(game);
             }
         }
 
@@ -135,6 +138,18 @@ namespace Compx323Project
             int gameId = gameIds[listBoxGames.SelectedIndex];
             var gameReviewForm = new GameReviews(gameId);
             gameReviewForm.Show();
+        }
+
+        private void buttonCheckout_Click(object sender, EventArgs e)
+        {
+            if(orderProducts.Count == 0)
+            {
+                MessageBox.Show("Order cannot contain 0 products.");
+                return;
+            }
+
+            var checkoutForm = new Checkout(username, orderProductsIds);
+            checkoutForm.Show();
         }
     }
 }

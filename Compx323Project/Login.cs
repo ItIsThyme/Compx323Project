@@ -27,22 +27,27 @@ namespace Compx323Project
             string password = textBoxPassword.Text;
             try
             {
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
                 OracleConnection conn = new OracleConnection(oradb);  // C#
                 conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select username, password from user where username = '" + username + "'";
+
+                string query = "select username, password from accounts where username = '" + username + "'";
+                OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())  //must be a user if the select worked
+
+                dr.Read();
+
+                if (dr.HasRows)
                 {
-                    if (dr.GetString(1).Equals(password)) //if password same login else error
+                    string un = dr.GetString(0); 
+                    string pass = dr.GetString(1);
+                    if (un == username && pass == password) //if password same login else error
                     {
+                        conn.Dispose();
                         this.Hide();
                         var menuForm = new Menu(username);
                         menuForm.Show();
-                        this.Close();
                     }
                     else
                     {
@@ -53,12 +58,14 @@ namespace Compx323Project
                 {
                     MessageBox.Show("Incorrect username or password");
                 }
+
+                conn.Dispose();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occured: \n" + ex.ToString());
             }
-
+            
         }
     }
 }

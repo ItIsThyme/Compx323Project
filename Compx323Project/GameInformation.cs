@@ -26,25 +26,30 @@ namespace Compx323Project
         {
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
                 OracleConnection conn = new OracleConnection(oradb);  // C#
                 conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select p.title, p.description, p.listing_date, pb.name from " +
+
+                string query = "select p.title, p.description, p.listing_date, pb.name, p.age_rating from " +
                     "product p inner join publisher pb on p.publisher_id = pb.id where p.id = " + gameId;
+                OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 
-                //add them all to the text box
-                while (dr.Read())
-                {
-                    string gameName = dr.GetString(0);
-                    string gameDescription = dr.GetString(1);
-                    string releaseDate = dr.GetString(2);
-                    string publisher = dr.GetString(3);
-                }
+                dr.Read();
+
+                string gameName = dr.GetString(0);
+                string gameDescription = dr.GetString(1);
+                string releaseDate = dr.GetString(2);
+                string publisher = dr.GetString(3);
+                string age = dr.GetString(4);
+
+                textBoxName.Text = gameName;
+                textBoxDescription.Text = gameDescription;
+                textBoxDate.Text = releaseDate;
+                textBoxPublisher.Text = publisher;
+                textBoxAgeRating.Text = age;
+
                 conn.Dispose();
             }
             catch
