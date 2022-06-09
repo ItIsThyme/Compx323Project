@@ -25,10 +25,17 @@ namespace Compx323Project
         {
             username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter a valid username and password.");
+                return;
+            }
+
             try
             {
                 string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
-                OracleConnection conn = new OracleConnection(oradb);  // C#
+                OracleConnection conn = new OracleConnection(oradb);
                 conn.Open();
 
                 string query = "select username, password from accounts where username = '" + username + "'";
@@ -40,7 +47,7 @@ namespace Compx323Project
 
                 if (dr.HasRows)
                 {
-                    string un = dr.GetString(0); 
+                    string un = dr.GetString(0);
                     string pass = dr.GetString(1);
                     if (un == username && pass == password) //if password same login else error
                     {
@@ -65,7 +72,7 @@ namespace Compx323Project
             {
                 MessageBox.Show("An error occured: \n" + ex.ToString());
             }
-            
+
         }
     }
 }
