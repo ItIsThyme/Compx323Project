@@ -42,27 +42,33 @@ namespace Compx323Project
                 {
                     rating = int.Parse(reviewComboBox.SelectedItem.ToString());
 
-                    string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                    string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
                     OracleConnection conn = new OracleConnection(oradb);  // C#
                     conn.Open();
-                    OracleCommand cmd = new OracleCommand();
-                    cmd.Connection = conn;
-                    // need to retrieve the users username as well as the product they are reviewing
-                    cmd.CommandText = "insert into review(title, description, rating, product_id, username) values ('" +
+
+                    string query = "insert into review(title, description, rating, product_id, username) values ('" +
                         title + "', '" +
                         description + "', " +
                         rating + ", " +
                         gameId + ", '" +
-                        username + "');";
+                        username + "')";
+                    OracleCommand cmd = new OracleCommand(query, conn);
                     cmd.CommandType = CommandType.Text;
-                    OracleDataReader dr = cmd.ExecuteReader();
 
-                    MessageBox.Show("Review submitted.");
-                    this.Hide();
-                    var ownedGamesForm = new OwnedGames(username);
-                    ownedGamesForm.Show();
-                    this.Close();
-
+                    int x = cmd.ExecuteNonQuery();
+                    
+                    if(x != 0)
+                    {
+                        MessageBox.Show("Review submitted.");
+                        this.Hide();
+                        var ownedGamesForm = new OwnedGames(username);
+                        ownedGamesForm.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Review was not able to be submitted");
+                    }
                 }
             }
             catch(Exception ex)

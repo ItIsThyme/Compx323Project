@@ -31,29 +31,26 @@ namespace Compx323Project
             //use sql select statement to get all games
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
                 OracleConnection conn = new OracleConnection(oradb);  // C#
                 conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select distinct p.id, p,title from product p inner join order o on p.id = o.pid where" +
-                    " o.username = '" + username + "'";
 
+                string query = "select distinct p.id, p.title from product p, order_products op where p.id = op.product_id and op.purchaser = '" + username + "'";
+                OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 
                 //add them all to the text box
                 while (dr.Read())
                 {
-                    gameNames.Add(dr.GetString(0));
-                    gameIds.Add(int.Parse(dr.GetString(1)));
+                    gameIds.Add(int.Parse(dr.GetString(0)));
+                    gameNames.Add(dr.GetString(1));
                 }
                 conn.Dispose();
 
                 for(int i = 0; i < gameNames.Count; i++)
                 {
-                    listBoxGames.Items.Add(gameNames);
+                    listBoxGames.Items.Add(gameNames[i]);
                 }
             }
             catch (Exception ex)
@@ -95,6 +92,14 @@ namespace Compx323Project
             int gameId = gameIds[listBoxGames.SelectedIndex];
             var gameInfoForm = new GameInformation(gameId);
             gameInfoForm.Show();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var menuForm = new Menu(username);
+            menuForm.ShowDialog();
+            this.Close();
         }
     }
 }
