@@ -27,6 +27,7 @@ namespace Compx323Project
 
         public void DisplayReviews()
         {
+            listBoxReviews.Items.Add("Rating".PadRight(9) + "Review");
             int r1 = 0;
             int r2 = 0;
             int r3 = 0;
@@ -36,23 +37,24 @@ namespace Compx323Project
             //use sql select statement to get all games
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
                 OracleConnection conn = new OracleConnection(oradb);  // C#
                 conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select id, title, rating from review where product_id = " + gameId;
+
+                string query = "select r.id, r.title, r.rating, p.title from review r inner join product p on r.product_id = p.id where r.product_id = " + gameId;
+                OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
-
+                
                 //add them all to the text box
                 while (dr.Read())
                 {
                     reviewIds.Add(int.Parse(dr.GetString(0)));
                     int rating = int.Parse(dr.GetString(2));
                     string title = dr.GetString(1);
-                    listBoxReviews.Items.Add(rating.ToString().PadRight(4) + title);
+                    string game = dr.GetString(3);
+                    textBoxGame.Text = game;
+                    listBoxReviews.Items.Add(rating.ToString().PadRight(9) + title);
 
                     if(rating == 1)
                     {
@@ -98,15 +100,15 @@ namespace Compx323Project
 
         private void buttonOpenReview_Click(object sender, EventArgs e)
         {
-            if (listBoxReviews.SelectedItem == null)
+            if (listBoxReviews.SelectedItem == null || listBoxReviews.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select a review.");
                 return;
             }
 
-            int gameId = reviewIds[listBoxReviews.SelectedIndex];
-            var gameReviewForm = new GameReviews(gameId);
-            gameReviewForm.Show();
+            int reviewId = reviewIds[listBoxReviews.SelectedIndex - 1];
+            var viewReviewForm = new ViewReview(reviewId);
+            viewReviewForm.Show();
         }
     }
 }

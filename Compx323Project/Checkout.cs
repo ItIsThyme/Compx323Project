@@ -27,25 +27,25 @@ namespace Compx323Project
 
         public void DisplayInfo()
         {
-            int cost = 0;
+            double cost = 0;
 
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-                OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
+                OracleConnection conn = new OracleConnection(oradb); 
+                conn.Open();               
 
                 foreach (int gameId in ids)
                 {
-                    cmd.CommandText = "select title, price from product where id = " + gameId;
+                    string query = "select title, price from product where id = " + gameId;
+                    OracleCommand cmd = new OracleCommand(query, conn);
                     cmd.CommandType = CommandType.Text;
                     OracleDataReader dr = cmd.ExecuteReader();
 
+                    dr.Read();
+
                     listBoxCart.Items.Add(dr.GetString(0));
-                    int price = int.Parse(dr.GetString(1));
+                    double price = double.Parse(dr.GetString(1));
                     cost += price;
                 }
                 conn.Dispose();
@@ -61,24 +61,50 @@ namespace Compx323Project
 
         private void buttonBuy_Click(object sender, EventArgs e)
         {
-            string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-            OracleConnection conn = new OracleConnection(oradb);  // C#
-            conn.Open();
-            OracleCommand cmd = new OracleCommand();
-            cmd.Connection = conn;
+            try
+            {
+                var dt = System.DateTime.Now;
 
-            // need to retrieve the users username as well as the product they are reviewing
-            //cmd.CommandText = "insert into order() values ('" +
-                
-            cmd.CommandType = CommandType.Text;
-            OracleDataReader dr = cmd.ExecuteReader();
+                string timestamp = "'" + dt.Day.ToString("D2") + "-" + dt.Month.ToString("D2") + "-" + dt.Year + " " + dt.Hour.ToString("D2") + ":" + dt.Minute.ToString("D2") + ":" + dt.Second.ToString("D2") + "'";
+                int rowsInserted = 0;
+
+                string oradb = "Data Source=oracle.cms.waikato.ac.nz:1521/teaching;User Id=ar233;Password=ora201830;";
+                OracleConnection conn = new OracleConnection(oradb);  // C#
+                conn.Open();
+
+                string query = "insert into orders values (" + timestamp + ",'" + username + "')";
+                OracleCommand cmd = new OracleCommand(query, conn);
+                cmd.CommandType = CommandType.Text;
+
+                rowsInserted += cmd.ExecuteNonQuery();
+
+                foreach (int id in ids)
+                {
+                    query = "insert into order_products values (" + timestamp + ",'" + username + "'," + id + ")";
+                    cmd = new OracleCommand(query, conn);
+                    cmd.CommandType = CommandType.Text;
+                    rowsInserted += cmd.ExecuteNonQuery();
+                }
+
+                if(rowsInserted == 0)
+                {
+                    MessageBox.Show("Error processing order.");
+                }
+                else
+                {
+                    MessageBox.Show("Order Successful.");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error processing order.");
+            }
+
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var buyGamesForm = new BuyGames(username);
-            buyGamesForm.Show();
             this.Close();
         }
     }
