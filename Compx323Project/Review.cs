@@ -7,23 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Compx323Project.Models;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Compx323Project
 {
-    public partial class Review : Form
+    public partial class CreateReviewForm : Form
     {
-        public string username;
-        public string game;
-        public int gameId;
+        Product productBeingReviewed;
 
-        public Review(string un, string g, int gid)
+        public CreateReviewForm(Product product)
         {
             InitializeComponent();
-            username = un;
-            game = g;
-            gameId = gid;
-            textBoxGame.Text = game;
+            
+            productBeingReviewed = product;
+            textBoxGame.Text = product.Title;
         }
 
         private void submitReviewButton_Click(object sender, EventArgs e)
@@ -32,36 +30,30 @@ namespace Compx323Project
             {
                 string title = titleTextBox.Text;
                 string description = descriptionTextBox.Text;
-                int rating = reviewComboBox.SelectedIndex;
+                int ratingIndex = reviewComboBox.SelectedIndex;
 
-                if(title == "" || description == "" || rating == -1)
+                if(title == "" || description == "" || ratingIndex == -1)
                 {
                     MessageBox.Show("Review must contain a title, description, and a rating.");
                 }
                 else
                 {
-                    rating = int.Parse(reviewComboBox.SelectedItem.ToString());
+                    int rating = reviewComboBox.SelectedIndex + 1;
 
-                    string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-                    OracleConnection conn = new OracleConnection(oradb);  // C#
-                    conn.Open();
-                    OracleCommand cmd = new OracleCommand();
-                    cmd.Connection = conn;
-                    // need to retrieve the users username as well as the product they are reviewing
-                    cmd.CommandText = "insert into review(title, description, rating, product_id, username) values ('" +
-                        title + "', '" +
-                        description + "', " +
-                        rating + ", " +
-                        gameId + ", '" +
-                        username + "');";
-                    cmd.CommandType = CommandType.Text;
-                    OracleDataReader dr = cmd.ExecuteReader();
+                    var review = new Review()
+                    {
+                        Title = title,
+                        Description = description,
+                        Rating = rating,
+                    };
+
+                    App.DataService.InsertReview(review, productBeingReviewed);
 
                     MessageBox.Show("Review submitted.");
-                    this.Hide();
-                    var ownedGamesForm = new OwnedGames(username);
+                    Hide();
+                    var ownedGamesForm = new OwnedGames();
                     ownedGamesForm.Show();
-                    this.Close();
+                    Close();
 
                 }
             }
@@ -74,8 +66,8 @@ namespace Compx323Project
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var ownedGamesForm = new OwnedGames(username);
+            Hide();
+            var ownedGamesForm = new OwnedGames();
             ownedGamesForm.Show();
             this.Close();
         }

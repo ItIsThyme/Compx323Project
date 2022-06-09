@@ -7,58 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Compx323Project.Models;
 using Oracle.ManagedDataAccess.Client;
 
 
 namespace Compx323Project
 {
-    public partial class ViewReview : Form
+    public partial class ReviewDetailsForm : Form
     {
-        public int reviewId;
+        Review review;
 
-        public ViewReview(int rid)
+        public ReviewDetailsForm(Review review, string productName)
         {
             InitializeComponent();
-            reviewId = rid;
+            this.review = review;
+            textBoxGame.Text = productName;
+
+            DisplayReview();
         }
 
         private void DisplayReview()
         {
-            //use sql select statement to get all games
-            try
-            {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-                OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select r.title, r.description, r.rating, r.username, p.title from " +
-                    "review r inner join product p on r.product_id = p.id where r.id = " + reviewId;
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
-
-                //add them all to the text box
-                while (dr.Read())
-                {
-                    textBoxGame.Text = dr.GetString(4);
-                    textBoxTitle.Text = dr.GetString(0);
-                    textBoxDescription.Text = dr.GetString(1);
-                    textBoxRating.Text = dr.GetString(2);
-                    textBoxUsername.Text = dr.GetString(3);
-                }
-                conn.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database connection error");
-                return;
-            }
+            textBoxTitle.Text = review.Title;
+            textBoxDescription.Text = review.Description;
+            textBoxRating.Text = review.Rating.ToString();
+            textBoxUsername.Text = review.Reviewer;
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

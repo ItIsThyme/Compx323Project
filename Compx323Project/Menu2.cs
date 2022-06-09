@@ -62,7 +62,7 @@ namespace Compx323Project
                 return;
             }
             //else open a new form to allow the user to add a review to the game
-            this.Hide();
+            Hide();
             // will have to pass this to review somehow -> gameListBox.SelectedItem.ToString();
             // as well as username (global variable from login)
             if (username.Equals(""))

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Compx323Project.Models;
 using Oracle.ManagedDataAccess.Client;
 
 
@@ -14,15 +15,11 @@ namespace Compx323Project
 {
     public partial class OwnedGames : Form
     {
-        public string username;
+        List<Product> productsOwned;
 
-        public List<string> gameNames = new List<string>();
-        public List<int> gameIds = new List<int>();
-
-        public OwnedGames(string un)
+        public OwnedGames()
         {
             InitializeComponent();
-            username = un;
             DisplayGames();
         }
 
@@ -31,32 +28,12 @@ namespace Compx323Project
             //use sql select statement to get all games
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-                OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select distinct p.id, p,title from product p inner join order o on p.id = o.pid where" +
-                    " o.username = '" + username + "'";
+                productsOwned = App.DataService.GetProductsOwnedByUser();
 
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
-
-                //add them all to the text box
-                while (dr.Read())
-                {
-                    gameNames.Add(dr.GetString(0));
-                    gameIds.Add(int.Parse(dr.GetString(1)));
-                }
-                conn.Dispose();
-
-                for(int i = 0; i < gameNames.Count; i++)
-                {
-                    listBoxGames.Items.Add(gameNames);
-                }
+                foreach (var product in productsOwned)
+                    listBoxGames.Items.Add(product);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Database connection error");
                 return;
@@ -74,13 +51,10 @@ namespace Compx323Project
                 return;
             }
 
-            int gameId = gameIds[listBoxGames.SelectedIndex];
+            var selectedProduct = listBoxGames.SelectedItem as Product;
 
-            //else open a new form to allow the user to add a review to the game
-            this.Hide();
-            var reviewForm = new Review(username, selectedGame, gameId);
+            var reviewForm = new CreateReviewForm(selectedProduct);
             reviewForm.ShowDialog();
-            this.Close();
         }
 
         private void buttonViewInformation_Click(object sender, EventArgs e)
@@ -92,9 +66,18 @@ namespace Compx323Project
                 return;
             }
 
-            int gameId = gameIds[listBoxGames.SelectedIndex];
-            var gameInfoForm = new GameInformation(gameId);
+            var selectedProduct = listBoxGames.SelectedItem as Product;
+            var gameInfoForm = new GameDetailsForm(selectedProduct);
             gameInfoForm.Show();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            new MenuForm().Show();
+
+            Close();
         }
     }
 }

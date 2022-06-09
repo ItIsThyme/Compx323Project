@@ -1,7 +1,7 @@
 ﻿
 namespace Compx323Project
 {
-    partial class Menu
+    partial class MenuForm
     {
         /// <summary>
         /// Required designer variable.

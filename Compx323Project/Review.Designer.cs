@@ -1,7 +1,7 @@
 ﻿
 namespace Compx323Project
 {
-    partial class Review
+    partial class CreateReviewForm
     {
         /// <summary>
         /// Required designer variable.

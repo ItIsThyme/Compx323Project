@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Compx323Project.Models;
 using Oracle.ManagedDataAccess.Client;
 
 
@@ -14,38 +15,35 @@ namespace Compx323Project
 {
     public partial class BuyGames : Form
     {
-        public string username;
-
-        public List<string> orderProducts = new List<string>();
-        public List<int> orderProductsIds = new List<int>();
-
-        public List<string> games = new List<string>();
-        public List<int> gameIds = new List<int>();
+        Order order;
         
-        public BuyGames(string un)
+        public BuyGames()
         {
             InitializeComponent();
-            username = un;
+
+            order = new Order
+            {
+                Products = new List<Product>()
+            };
+
             DisplayGames();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var menuForm = new Menu(username);
+            Hide();
+
+            var menuForm = new MenuForm();
             menuForm.Show();
-            this.Close();
+
+            Close();
         }
 
         private void buttonAddToOrder_Click(object sender, EventArgs e)
         {
             if (listBoxGames.SelectedItem != null)
             {
-                string game = games[listBoxGames.SelectedIndex];
-                int gameId = gameIds[listBoxGames.SelectedIndex];
-
-                orderProducts.Add(game);
-                orderProductsIds.Add(gameId);
+                order.Products.Add(listBoxGames.SelectedItem as Product);
 
                 DisplayOrder();
             }
@@ -57,84 +55,72 @@ namespace Compx323Project
 
         private void DisplayOrder()
         {
-            foreach(string game in orderProducts)
-            {
-                listBoxOrder.Items.Add(game);
-            }
+            listBoxOrder.Items.Clear();
+
+            foreach (var product in order.Products)
+                listBoxOrder.Items.Add(product);
         }
 
         public void DisplayGames()
         {
-            //use sql select statement to get all games
-            try
-            {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-                OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select title, id from product";
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
+            var products = App.DataService.GetProducts();
 
-                //add them all to the text box
-                while (dr.Read())
-                {
-                    games.Add(dr.GetString(0));
-                    gameIds.Add(int.Parse(dr.GetString(1)));
-                }
-                conn.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database connection error");
-                return;
-            }
+            listBoxGames.Items.Clear();
 
-            foreach(string game in games)
-            {
-                games.Add(game);
-            }
+            foreach (var product in products)
+                listBoxGames.Items.Add(product);
         }
 
         private void buttonDeleteFromOrder_Click(object sender, EventArgs e)
         {
-            if(listBoxOrder.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a game from your cart to delete.");
+            if (!VerifySelection(listBoxOrder, "Please select a game from your cart to delete."))
                 return;
-            }
 
-            orderProducts.RemoveAt(listBoxOrder.SelectedIndex);
-            orderProductsIds.RemoveAt(listBoxOrder.SelectedIndex);
+            order.Products.Remove(listBoxOrder.SelectedItem as Product);
+
             DisplayOrder();
         }
 
         private void buttonGameInfo_Click(object sender, EventArgs e)
         {
-            if(listBoxGames.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a game.");
+            if (!VerifySelection(listBoxGames))
                 return;
-            }
 
-            int gameId = gameIds[listBoxGames.SelectedIndex];
-            var gameInfoForm = new GameInformation(gameId);
+            var selectedProduct = listBoxGames.SelectedItem as Product;
+            var gameInfoForm = new GameDetailsForm(selectedProduct);
             gameInfoForm.Show();
         }
 
         private void buttonGameReview_Click(object sender, EventArgs e)
         {
-            if (listBoxGames.SelectedItem == null)
+            if (!VerifySelection(listBoxGames))
+                return;
+
+            var selectedProduct = listBoxGames.SelectedItem as Product;
+            var gameReviewForm = new GameReviews(selectedProduct);
+            gameReviewForm.Show();
+        }
+
+        bool VerifySelection(ListBox listBox, string errorMessage = "Please select a game.")
+        {
+            if (listBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select a game.");
+                MessageBox.Show(errorMessage);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void buttonCheckout_Click(object sender, EventArgs e)
+        {
+            if (order.Products.Count is 0)
+            {
+                MessageBox.Show("You have not added any items to your cart.");
                 return;
             }
 
-            int gameId = gameIds[listBoxGames.SelectedIndex];
-            var gameReviewForm = new GameReviews(gameId);
-            gameReviewForm.Show();
+            new Checkout(order).ShowDialog();
         }
     }
 }

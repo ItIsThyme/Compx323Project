@@ -1,7 +1,7 @@
 ﻿
 namespace Compx323Project
 {
-    partial class GameInformation
+    partial class GameDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,17 +34,18 @@ namespace Compx323Project
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxReleaseDate = new System.Windows.Forms.TextBox();
+            this.textBoxPublisher = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(300, 454);
+            this.buttonBack.Location = new System.Drawing.Point(450, 709);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(200, 45);
+            this.buttonBack.Size = new System.Drawing.Size(300, 70);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -53,87 +54,97 @@ namespace Compx323Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 96);
+            this.label1.Location = new System.Drawing.Point(147, 150);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(74, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 157);
+            this.label2.Location = new System.Drawing.Point(138, 245);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 17);
+            this.label2.Size = new System.Drawing.Size(126, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Description:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 295);
+            this.label3.Location = new System.Drawing.Point(147, 461);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(148, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Release Date:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 349);
+            this.label4.Location = new System.Drawing.Point(144, 545);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.Size = new System.Drawing.Size(108, 25);
             this.label4.TabIndex = 4;
             this.label4.Text = "Publisher:";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(322, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(376, 22);
-            this.textBox1.TabIndex = 5;
+            this.textBoxName.Location = new System.Drawing.Point(483, 144);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
+            this.textBoxName.Size = new System.Drawing.Size(562, 31);
+            this.textBoxName.TabIndex = 5;
             // 
-            // textBox2
+            // textBoxReleaseDate
             // 
-            this.textBox2.Location = new System.Drawing.Point(322, 295);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(376, 22);
-            this.textBox2.TabIndex = 6;
+            this.textBoxReleaseDate.Location = new System.Drawing.Point(483, 461);
+            this.textBoxReleaseDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxReleaseDate.Name = "textBoxReleaseDate";
+            this.textBoxReleaseDate.ReadOnly = true;
+            this.textBoxReleaseDate.Size = new System.Drawing.Size(562, 31);
+            this.textBoxReleaseDate.TabIndex = 6;
             // 
-            // textBox3
+            // textBoxPublisher
             // 
-            this.textBox3.Location = new System.Drawing.Point(322, 349);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(376, 22);
-            this.textBox3.TabIndex = 7;
+            this.textBoxPublisher.Location = new System.Drawing.Point(483, 545);
+            this.textBoxPublisher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxPublisher.Name = "textBoxPublisher";
+            this.textBoxPublisher.ReadOnly = true;
+            this.textBoxPublisher.Size = new System.Drawing.Size(562, 31);
+            this.textBoxPublisher.TabIndex = 7;
             // 
-            // textBox4
+            // textBoxDescription
             // 
-            this.textBox4.Location = new System.Drawing.Point(322, 152);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(376, 103);
-            this.textBox4.TabIndex = 8;
+            this.textBoxDescription.Location = new System.Drawing.Point(483, 238);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ReadOnly = true;
+            this.textBoxDescription.Size = new System.Drawing.Size(562, 159);
+            this.textBoxDescription.TabIndex = 8;
             // 
-            // GameInformation
+            // GameDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 519);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1200, 811);
+            this.Controls.Add(this.textBoxDescription);
+            this.Controls.Add(this.textBoxPublisher);
+            this.Controls.Add(this.textBoxReleaseDate);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBack);
-            this.Name = "GameInformation";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "GameDetailsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameInformation";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,9 +158,9 @@ namespace Compx323Project
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxReleaseDate;
+        private System.Windows.Forms.TextBox textBoxPublisher;
+        private System.Windows.Forms.TextBox textBoxDescription;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Compx323Project.Models;
 using Oracle.ManagedDataAccess.Client;
 
 
@@ -14,86 +15,43 @@ namespace Compx323Project
 {
     public partial class GameReviews : Form
     {
-        public int gameId;
+        Product productBeingReviewed;
 
-        public List<int> reviewIds = new List<int>();
-
-        public GameReviews(int gid)
+        public GameReviews(Product product)
         {
             InitializeComponent();
-            gameId = gid;
+
+            productBeingReviewed = product;
             DisplayReviews();
         }
 
         public void DisplayReviews()
         {
-            int r1 = 0;
-            int r2 = 0;
-            int r3 = 0;
-            int r4 = 0;
-            int r5 = 0;
+            textBoxGame.Text = productBeingReviewed.Title;
 
-            //use sql select statement to get all games
             try
             {
-                //Data source is the Uni's. ID/Password should probably be Caleb's since he has done the SQL
-                string oradb = "Data Source= oracle.cms.waikato.ac.nz:1521/teaching;User Id=user;Password=hr;";
-                OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "select id, title, rating from review where product_id = " + gameId;
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
+                var productReviews = App.DataService.GetReviewsForProduct(productBeingReviewed);
 
-                //add them all to the text box
-                while (dr.Read())
-                {
-                    reviewIds.Add(int.Parse(dr.GetString(0)));
-                    int rating = int.Parse(dr.GetString(2));
-                    string title = dr.GetString(1);
-                    listBoxReviews.Items.Add(rating.ToString().PadRight(4) + title);
+                foreach (var productReview in productReviews)
+                    listBoxReviews.Items.Add(productReview);
 
-                    if(rating == 1)
-                    {
-                        r1++;
-                    }
-                    else if(rating == 2)
-                    {
-                        r2++;
-                    }
-                    else if(rating == 3)
-                    {
-                        r3++;
-                    }
-                    else if(rating == 4)
-                    {
-                        r4++;
-                    }
-                    else if(rating == 5)
-                    {
-                        r5++;
-                    }
-                }
-                conn.Dispose();
+                textBox1.Text = productReviews.Count(x => x.Rating is 1).ToString();
+                textBox2.Text = productReviews.Count(x => x.Rating is 2).ToString();
+                textBox3.Text = productReviews.Count(x => x.Rating is 3).ToString();
+                textBox4.Text = productReviews.Count(x => x.Rating is 4).ToString();
+                textBox5.Text = productReviews.Count(x => x.Rating is 5).ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Database connection error");
                 return;
             }
-
-            textBox1.Text = r1.ToString();
-            textBox2.Text = r2.ToString();
-            textBox3.Text = r3.ToString();
-            textBox4.Text = r4.ToString();
-            textBox5.Text = r5.ToString();
-
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void buttonOpenReview_Click(object sender, EventArgs e)
@@ -104,8 +62,8 @@ namespace Compx323Project
                 return;
             }
 
-            int gameId = reviewIds[listBoxReviews.SelectedIndex];
-            var gameReviewForm = new GameReviews(gameId);
+            var selectedReview = listBoxReviews.SelectedItem as Review;
+            var gameReviewForm = new ReviewDetailsForm(selectedReview, productBeingReviewed.Title);
             gameReviewForm.Show();
         }
     }

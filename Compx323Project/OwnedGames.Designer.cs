@@ -33,23 +33,25 @@ namespace Compx323Project
             this.buttonViewInformation = new System.Windows.Forms.Button();
             this.buttonReview = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxGames
             // 
             this.listBoxGames.FormattingEnabled = true;
-            this.listBoxGames.ItemHeight = 16;
-            this.listBoxGames.Location = new System.Drawing.Point(13, 61);
-            this.listBoxGames.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxGames.ItemHeight = 25;
+            this.listBoxGames.Location = new System.Drawing.Point(20, 95);
+            this.listBoxGames.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.listBoxGames.Name = "listBoxGames";
-            this.listBoxGames.Size = new System.Drawing.Size(289, 388);
+            this.listBoxGames.Size = new System.Drawing.Size(432, 604);
             this.listBoxGames.TabIndex = 1;
             // 
             // buttonViewInformation
             // 
-            this.buttonViewInformation.Location = new System.Drawing.Point(326, 177);
+            this.buttonViewInformation.Location = new System.Drawing.Point(489, 277);
+            this.buttonViewInformation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonViewInformation.Name = "buttonViewInformation";
-            this.buttonViewInformation.Size = new System.Drawing.Size(171, 43);
+            this.buttonViewInformation.Size = new System.Drawing.Size(256, 67);
             this.buttonViewInformation.TabIndex = 2;
             this.buttonViewInformation.Text = "View Information";
             this.buttonViewInformation.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@ namespace Compx323Project
             // 
             // buttonReview
             // 
-            this.buttonReview.Location = new System.Drawing.Point(326, 259);
+            this.buttonReview.Location = new System.Drawing.Point(489, 405);
+            this.buttonReview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonReview.Name = "buttonReview";
-            this.buttonReview.Size = new System.Drawing.Size(171, 43);
+            this.buttonReview.Size = new System.Drawing.Size(256, 67);
             this.buttonReview.TabIndex = 3;
             this.buttonReview.Text = "Review Game";
             this.buttonReview.UseVisualStyleBackColor = true;
@@ -68,21 +71,34 @@ namespace Compx323Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 26);
+            this.label1.Location = new System.Drawing.Point(159, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.Size = new System.Drawing.Size(132, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Your Games";
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(489, 548);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(256, 72);
+            this.buttonBack.TabIndex = 5;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // OwnedGames
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 467);
+            this.ClientSize = new System.Drawing.Size(784, 730);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonReview);
             this.Controls.Add(this.buttonViewInformation);
             this.Controls.Add(this.listBoxGames);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "OwnedGames";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OwnedGames";
@@ -97,5 +113,6 @@ namespace Compx323Project
         private System.Windows.Forms.Button buttonViewInformation;
         private System.Windows.Forms.Button buttonReview;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Compx323Project
 {
-    partial class ViewReview
+    partial class ReviewDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -45,53 +45,59 @@ namespace Compx323Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 37);
+            this.label1.Location = new System.Drawing.Point(96, 58);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 17);
+            this.label1.Size = new System.Drawing.Size(119, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Review for:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 94);
+            this.label2.Location = new System.Drawing.Point(98, 147);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 17);
+            this.label2.Size = new System.Drawing.Size(59, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Title:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 152);
+            this.label3.Location = new System.Drawing.Point(98, 238);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 17);
+            this.label3.Size = new System.Drawing.Size(126, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Description:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 273);
+            this.label4.Location = new System.Drawing.Point(102, 427);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.Size = new System.Drawing.Size(80, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Rating:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(68, 328);
+            this.label5.Location = new System.Drawing.Point(102, 512);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.Size = new System.Drawing.Size(117, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Review by:";
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(185, 386);
+            this.buttonBack.Location = new System.Drawing.Point(278, 603);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(208, 37);
+            this.buttonBack.Size = new System.Drawing.Size(312, 58);
             this.buttonBack.TabIndex = 5;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -99,50 +105,55 @@ namespace Compx323Project
             // 
             // textBoxGame
             // 
-            this.textBoxGame.Location = new System.Drawing.Point(173, 32);
+            this.textBoxGame.Location = new System.Drawing.Point(260, 50);
+            this.textBoxGame.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxGame.Name = "textBoxGame";
             this.textBoxGame.ReadOnly = true;
-            this.textBoxGame.Size = new System.Drawing.Size(327, 22);
+            this.textBoxGame.Size = new System.Drawing.Size(488, 31);
             this.textBoxGame.TabIndex = 6;
             // 
             // textBoxTitle
             // 
-            this.textBoxTitle.Location = new System.Drawing.Point(173, 94);
+            this.textBoxTitle.Location = new System.Drawing.Point(260, 147);
+            this.textBoxTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.ReadOnly = true;
-            this.textBoxTitle.Size = new System.Drawing.Size(327, 22);
+            this.textBoxTitle.Size = new System.Drawing.Size(488, 31);
             this.textBoxTitle.TabIndex = 7;
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(173, 152);
+            this.textBoxDescription.Location = new System.Drawing.Point(260, 238);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.Size = new System.Drawing.Size(327, 96);
+            this.textBoxDescription.Size = new System.Drawing.Size(488, 148);
             this.textBoxDescription.TabIndex = 8;
             // 
             // textBoxRating
             // 
-            this.textBoxRating.Location = new System.Drawing.Point(173, 270);
+            this.textBoxRating.Location = new System.Drawing.Point(260, 422);
+            this.textBoxRating.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxRating.Name = "textBoxRating";
             this.textBoxRating.ReadOnly = true;
-            this.textBoxRating.Size = new System.Drawing.Size(327, 22);
+            this.textBoxRating.Size = new System.Drawing.Size(488, 31);
             this.textBoxRating.TabIndex = 9;
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(173, 323);
+            this.textBoxUsername.Location = new System.Drawing.Point(260, 505);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.ReadOnly = true;
-            this.textBoxUsername.Size = new System.Drawing.Size(327, 22);
+            this.textBoxUsername.Size = new System.Drawing.Size(488, 31);
             this.textBoxUsername.TabIndex = 10;
             // 
-            // ViewReview
+            // ReviewDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 450);
+            this.ClientSize = new System.Drawing.Size(864, 703);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.textBoxRating);
             this.Controls.Add(this.textBoxDescription);
@@ -154,7 +165,9 @@ namespace Compx323Project
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ViewReview";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "ReviewDetailsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewReview";
             this.ResumeLayout(false);
             this.PerformLayout();

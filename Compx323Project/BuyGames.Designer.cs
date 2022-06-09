@@ -42,9 +42,10 @@ namespace Compx323Project
             // 
             // buttonAddToOrder
             // 
-            this.buttonAddToOrder.Location = new System.Drawing.Point(437, 225);
+            this.buttonAddToOrder.Location = new System.Drawing.Point(656, 352);
+            this.buttonAddToOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAddToOrder.Name = "buttonAddToOrder";
-            this.buttonAddToOrder.Size = new System.Drawing.Size(155, 42);
+            this.buttonAddToOrder.Size = new System.Drawing.Size(232, 66);
             this.buttonAddToOrder.TabIndex = 0;
             this.buttonAddToOrder.Text = "Add to Order";
             this.buttonAddToOrder.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@ namespace Compx323Project
             // 
             // buttonDeleteFromOrder
             // 
-            this.buttonDeleteFromOrder.Location = new System.Drawing.Point(615, 225);
+            this.buttonDeleteFromOrder.Location = new System.Drawing.Point(922, 352);
+            this.buttonDeleteFromOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDeleteFromOrder.Name = "buttonDeleteFromOrder";
-            this.buttonDeleteFromOrder.Size = new System.Drawing.Size(155, 42);
+            this.buttonDeleteFromOrder.Size = new System.Drawing.Size(232, 66);
             this.buttonDeleteFromOrder.TabIndex = 1;
             this.buttonDeleteFromOrder.Text = "Delete from Order";
             this.buttonDeleteFromOrder.UseVisualStyleBackColor = true;
@@ -62,36 +64,42 @@ namespace Compx323Project
             // 
             // buttonCheckout
             // 
-            this.buttonCheckout.Location = new System.Drawing.Point(498, 287);
+            this.buttonCheckout.Location = new System.Drawing.Point(747, 448);
+            this.buttonCheckout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCheckout.Name = "buttonCheckout";
-            this.buttonCheckout.Size = new System.Drawing.Size(198, 40);
+            this.buttonCheckout.Size = new System.Drawing.Size(297, 62);
             this.buttonCheckout.TabIndex = 2;
             this.buttonCheckout.Text = "Checkout";
             this.buttonCheckout.UseVisualStyleBackColor = true;
+            this.buttonCheckout.Click += new System.EventHandler(this.buttonCheckout_Click);
             // 
             // listBoxOrder
             // 
             this.listBoxOrder.FormattingEnabled = true;
-            this.listBoxOrder.ItemHeight = 16;
-            this.listBoxOrder.Location = new System.Drawing.Point(449, 60);
+            this.listBoxOrder.ItemHeight = 25;
+            this.listBoxOrder.Location = new System.Drawing.Point(674, 94);
+            this.listBoxOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxOrder.Name = "listBoxOrder";
-            this.listBoxOrder.Size = new System.Drawing.Size(307, 148);
+            this.listBoxOrder.Size = new System.Drawing.Size(458, 229);
             this.listBoxOrder.TabIndex = 3;
             // 
             // listBoxGames
             // 
+            this.listBoxGames.Font = new System.Drawing.Font("Courier New", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxGames.FormattingEnabled = true;
-            this.listBoxGames.ItemHeight = 16;
-            this.listBoxGames.Location = new System.Drawing.Point(22, 27);
+            this.listBoxGames.ItemHeight = 23;
+            this.listBoxGames.Location = new System.Drawing.Point(33, 42);
+            this.listBoxGames.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxGames.Name = "listBoxGames";
-            this.listBoxGames.Size = new System.Drawing.Size(357, 500);
+            this.listBoxGames.Size = new System.Drawing.Size(534, 763);
             this.listBoxGames.TabIndex = 4;
             // 
             // buttonGameInfo
             // 
-            this.buttonGameInfo.Location = new System.Drawing.Point(464, 366);
+            this.buttonGameInfo.Location = new System.Drawing.Point(696, 572);
+            this.buttonGameInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonGameInfo.Name = "buttonGameInfo";
-            this.buttonGameInfo.Size = new System.Drawing.Size(268, 42);
+            this.buttonGameInfo.Size = new System.Drawing.Size(402, 66);
             this.buttonGameInfo.TabIndex = 6;
             this.buttonGameInfo.Text = "View Game Information";
             this.buttonGameInfo.UseVisualStyleBackColor = true;
@@ -99,9 +107,10 @@ namespace Compx323Project
             // 
             // buttonGameReview
             // 
-            this.buttonGameReview.Location = new System.Drawing.Point(464, 427);
+            this.buttonGameReview.Location = new System.Drawing.Point(696, 667);
+            this.buttonGameReview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonGameReview.Name = "buttonGameReview";
-            this.buttonGameReview.Size = new System.Drawing.Size(268, 42);
+            this.buttonGameReview.Size = new System.Drawing.Size(402, 66);
             this.buttonGameReview.TabIndex = 7;
             this.buttonGameReview.Text = "View Game Reviews";
             this.buttonGameReview.UseVisualStyleBackColor = true;
@@ -109,9 +118,10 @@ namespace Compx323Project
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(464, 485);
+            this.buttonBack.Location = new System.Drawing.Point(696, 758);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(268, 42);
+            this.buttonBack.Size = new System.Drawing.Size(402, 66);
             this.buttonBack.TabIndex = 8;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -120,17 +130,18 @@ namespace Compx323Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(569, 27);
+            this.label1.Location = new System.Drawing.Point(854, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 17);
+            this.label1.Size = new System.Drawing.Size(106, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Your cart:";
             // 
             // BuyGames
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 551);
+            this.ClientSize = new System.Drawing.Size(1200, 861);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonGameReview);
@@ -140,7 +151,9 @@ namespace Compx323Project
             this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.buttonDeleteFromOrder);
             this.Controls.Add(this.buttonAddToOrder);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BuyGames";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BuyGames";
             this.ResumeLayout(false);
             this.PerformLayout();
