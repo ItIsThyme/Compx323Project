@@ -96,7 +96,7 @@ namespace Compx323Project
                     this.Close();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Error processing order.");
             }
